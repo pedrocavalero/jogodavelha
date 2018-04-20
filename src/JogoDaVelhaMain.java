@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.Scanner;
 
 public class JogoDaVelhaMain {
@@ -15,48 +14,99 @@ public class JogoDaVelhaMain {
 		char posicao33=' ';
 		Scanner console = new Scanner(System.in);
 		System.out.println("Olá! Benvindo ao Jogo da Velha!"
-				+ "\nO X sempre começa! O jogo termina se alguém gnahar ou der velha. ");
+				+ "\nO X sempre comeca! O jogo termina se alguem gnahar ou der velha. ");
 		
 		char jogadorAtual='X';
 		for(int i=0;i<9;i++) {
-			//Recebe a jogada atual
-			System.out.printf("Insira a posicao de %s (1 a 9) ", jogadorAtual);
-			String posicao = console.nextLine();
-			switch(posicao) {
-			case "1":
-				posicao11=jogadorAtual;
-				break;
-			case "2":
-				posicao12=jogadorAtual;
-				break;
-			case "3":
-				posicao13=jogadorAtual;
-				break;
-			case "4":
-				posicao21=jogadorAtual;
-				break;
-			case "5":
-				posicao22=jogadorAtual;
-				break;
-			case "6":
-				posicao23=jogadorAtual;
-				break;
-			case "7":
-				posicao31=jogadorAtual;
-				break;
-			case "8":
-				posicao32=jogadorAtual;
-				break;
-			case "9":
-				posicao33=jogadorAtual;
-				break;
-			}
+			boolean jogadaOk=true;
+			do {
+				//Recebe a jogada atual
+				System.out.printf("\nInsira a posicao de %s (1 a 9) ", jogadorAtual);
+				String posicao = console.nextLine();
+				switch (posicao) {
+				case "1":
+					if(posicao11==' ') {
+						posicao11 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "2":
+					if(posicao12==' ') {
+						posicao12 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "3":
+					if(posicao13==' ') {
+						posicao13 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "4":
+					if(posicao21==' ') {
+						posicao21 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "5":
+					if(posicao22==' ') {
+						posicao22 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "6":
+					if(posicao23==' ') {
+						posicao23 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "7":
+					if(posicao31==' ') {
+						posicao31 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "8":
+					if(posicao32==' ') {
+						posicao32 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				case "9":
+					if(posicao33==' ') {
+						posicao33 = jogadorAtual;
+						jogadaOk=true;
+					} else {
+						jogadaOk=false;
+					}
+					break;
+				}
+				if(!jogadaOk) {
+					System.out.println("Jogada inv�lida! Escolha uma posicao vazia");
+				}
+			}while (!jogadaOk);
 			//imprime tabuleiro atual
 			System.out.println(
 					posicao11 + " | " + posicao12 + " |" + posicao13 +
-					"\n____________________________" +
+					"\n__________" +
 					"\n"+posicao21 + " | " + posicao22 + " |" + posicao23 +
-					"\n____________________________" +
+					"\n__________" +
 					"\n"+posicao31 + " | " + posicao32 + " |" + posicao33);
 			//verifica se alguém ganhou
 			if( (posicao11!=' ' && posicao11==posicao12 && posicao12==posicao13) ){
