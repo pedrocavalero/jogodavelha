@@ -13,8 +13,8 @@ public class JogoDaVelhaMain {
 		char posicao32=' ';
 		char posicao33=' ';
 		Scanner console = new Scanner(System.in);
-		System.out.println("Olá! Benvindo ao Jogo da Velha!"
-				+ "\nO X sempre comeca! O jogo termina se alguem gnahar ou der velha. ");
+		System.out.println("Ola! Benvindo ao Jogo da Velha!"
+				+ "\nO X sempre comeca! O jogo termina se alguem ganhar ou der velha. ");
 		
 		char jogadorAtual='X';
 		for(int i=0;i<9;i++) {
@@ -108,7 +108,7 @@ public class JogoDaVelhaMain {
 					"\n"+posicao21 + " | " + posicao22 + " |" + posicao23 +
 					"\n__________" +
 					"\n"+posicao31 + " | " + posicao32 + " |" + posicao33);
-			//verifica se alguém ganhou
+			//verifica se alguem ganhou
 			if( (posicao11!=' ' && posicao11==posicao12 && posicao12==posicao13) ){
 				System.out.printf("Jogador %s ganhou!", posicao11);
 				break;
@@ -142,10 +142,13 @@ public class JogoDaVelhaMain {
 				break;
 			}
 
-			//inverte jogador pra próxima rodada
+			//inverte jogador pra proxima rodada
 			jogadorAtual = (jogadorAtual=='X')?'O':'X';
-			
+			if(i==8) {
+				System.out.println("Deu velha!");
+			}
 		}
+		
 		
 	}
 
