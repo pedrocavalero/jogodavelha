@@ -1,2 +1,2 @@
 # jogodavelha
-Implementação do Jogo da Velha pras turmas de Academia Java
+Implementação do Jogo da Velha pras turmas de Academia Java da Season
