@@ -30,16 +30,13 @@ public class JogoDaVelhaMain {
 				System.out.println(posicoes[j]+" | "+posicoes[j+1]+" | "+posicoes[j+2]);
 			}
 			//verifica se alguem ganhou
-			//linha
-			for (int j = 0; j < posicoes.length; j+=3) {
-				if(posicoes[j]!='\u0000' && posicoes[j]==posicoes[j+1] && posicoes[j+1]==posicoes[j+2]) {
+			//linha e coluna em um for
+			for (int j = 0; j < posicoes.length; j++) {
+				if(posicoes[j%3]!='\u0000' && posicoes[j%3]==posicoes[j%3+1] && posicoes[j%3+1]==posicoes[j%3+2]) {
 					System.out.printf("Jogador %s ganhou!", posicoes[j]);
 					return;
 				}
-			}
-			//coluna
-			for (int j = 0; j < 3; j++) {
-				if(posicoes[j]!='\u0000' && posicoes[j]==posicoes[j+3] && posicoes[j+3]==posicoes[j+6]) {
+				if(posicoes[j%3]!='\u0000' && posicoes[j%3]==posicoes[j%3+3] && posicoes[j%3+3]==posicoes[j%3+6]) {
 					System.out.printf("Jogador %s ganhou!", posicoes[j]);
 					return;
 				}
