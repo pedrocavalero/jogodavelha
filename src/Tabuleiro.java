@@ -1,7 +1,7 @@
 
 public class Tabuleiro {
 	
-	char[] posicoes = new char[9];
+	private char[] posicoes = new char[9];
 	
 	public Tabuleiro(){
 		for (int i = 0; i < posicoes.length; i++) {
@@ -54,7 +54,7 @@ public class Tabuleiro {
 	}
 	
 	public boolean isDiagonalSecundariaComMesmoValor(char valor){
-		if(posicoes[2]==valor && posicoes[2]==posicoes[4] && posicoes[4]==posicoes[5]) {
+		if(posicoes[2]==valor && posicoes[2]==posicoes[4] && posicoes[4]==posicoes[6]) {
 			return true;
 		}
 		return false;
