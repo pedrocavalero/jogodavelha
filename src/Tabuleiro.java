@@ -3,8 +3,14 @@ public class Tabuleiro {
 	
 	char[] posicoes = new char[9];
 	
+	public Tabuleiro(){
+		for (int i = 0; i < posicoes.length; i++) {
+			posicoes[i]=' ';
+		}
+	}
+	
 	public boolean setPosicao(int posicao, char texto){
-		if(posicoes[posicao-1]=='\u0000') {
+		if(posicoes[posicao-1]==' ') {
 			posicoes[posicao-1] = texto;
 			return true;
 		} else {
@@ -18,21 +24,22 @@ public class Tabuleiro {
 	
 	public void imprimeTabuleiro(){
 		for(int j=0; j<posicoes.length; j+=3) {
-			System.out.print("\n"+ posicoes[j]+" | "+posicoes[j+1]+" | "+posicoes[j+2]);
+			String linha = posicoes[j]+" | "+posicoes[j+1]+" | "+posicoes[j+2];
+			System.out.println(linha);
 		}
 	}
 	
 	public boolean isAlgumaLinhaComMesmoValor(char valor){
-		for (int j = 0; j < posicoes.length; j++) {
-			if(posicoes[j%3]==valor && posicoes[j%3]==posicoes[j%3+1] && posicoes[j%3+1]==posicoes[j%3+2]) {
+		for (int linha = 0; linha < 3; linha++) {
+			if(posicoes[linha*3]==valor && posicoes[linha*3]==posicoes[linha*3+1] && posicoes[linha*3+1]==posicoes[linha*3+2]) {
 				return true;
 			}
 		}
 		return false;
 	}
 	public boolean isAlgumaColunaComMesmoValor(char valor){
-		for (int j = 0; j < posicoes.length; j++) {
-			if(posicoes[j%3]==valor && posicoes[j%3]==posicoes[j%3+3] && posicoes[j%3+3]==posicoes[j%3+6]) {
+		for (int coluna = 0; coluna < 3; coluna++) {
+			if(posicoes[coluna]==valor && posicoes[coluna]==posicoes[coluna+3] && posicoes[coluna+3]==posicoes[coluna+6]) {
 				return true;
 			}
 		}

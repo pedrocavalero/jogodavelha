@@ -13,9 +13,9 @@ public class JogoDaVelhaMain {
 			boolean jogadaOk=true;
 			do {
 				//Recebe a jogada atual
-				System.out.printf("\nInsira a linha de %s (1 a 3) ", jogadorAtual);
+				System.out.printf("Insira a linha de %s (1 a 3) ", jogadorAtual);
 				int linha = console.nextInt();
-				System.out.printf("\nInsira a coluna de %s (1 a 3) \n", jogadorAtual);
+				System.out.printf("Insira a coluna de %s (1 a 3) ", jogadorAtual);
 				int coluna = console.nextInt();
 				jogadaOk=tabuleiro.setPosicao(linha, coluna, jogadorAtual);
 				if(!jogadaOk) {
