@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class JogoDaVelhaMain {
 
 	public static void main(String[] args) {
-		Tabuleiro tabuleiro = new Tabuleiro();
+		ITabuleiro tabuleiro = new Tabuleiro();
 		Scanner console = new Scanner(System.in);
 		System.out.println("Ola! Benvindo ao Jogo da Velha!"
 				+ "\nO X sempre comeca! O jogo termina se alguem ganhar ou der velha. ");
@@ -17,10 +17,17 @@ public class JogoDaVelhaMain {
 				int linha = console.nextInt();
 				System.out.printf("Insira a coluna de %s (1 a 3) ", jogadorAtual);
 				int coluna = console.nextInt();
-				jogadaOk=tabuleiro.setPosicao(linha, coluna, jogadorAtual);
-				if(!jogadaOk) {
+				
+				try {
+					tabuleiro.marcarPosicao(linha, coluna, jogadorAtual);
+					jogadaOk=true;
+				} catch (PosicaoInvalidaException e) {
 					System.out.println("Jogada invalida! Escolha uma posicao vazia");
+					System.out.println("Mensagem vinda da exceção: " + e.getMessage());
+					System.out.println("Essa posição é invalida! linha "+ e.getLinha() + " e coluna " + e.getColuna());
+					jogadaOk=false;
 				}
+				
 			}while (!jogadaOk);
 			//imprime tabuleiro atual
 			tabuleiro.imprimeTabuleiro();

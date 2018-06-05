@@ -1,11 +1,19 @@
 
-public class Tabuleiro {
+public class Tabuleiro implements ITabuleiro  {
 	
 	private char[] posicoes = new char[9];
 	
 	public Tabuleiro(){
 		for (int i = 0; i < posicoes.length; i++) {
 			posicoes[i]=' ';
+		}
+	}
+	
+	
+	public void marcarPosicao(int linha, int coluna, char texto) throws PosicaoInvalidaException {
+		boolean deuCerto = setPosicao(linha, coluna, texto);
+		if(!deuCerto){
+			throw new PosicaoInvalidaException(linha, coluna, texto, "Posição ocupada");
 		}
 	}
 	
