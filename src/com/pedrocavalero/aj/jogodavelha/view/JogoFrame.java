@@ -22,6 +22,7 @@ public class JogoFrame extends JFrame{
 		jogo.iniciarJogo();
 		getContentPane().setLayout(new GridLayout(3, 3, 0, 0));
 		setSize(500, 500);
+		setTitle("Jogo da Velha");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
